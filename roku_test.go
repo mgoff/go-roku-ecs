@@ -31,12 +31,6 @@ func TestRokuEcp(t *testing.T) {
 	}
 	time.Sleep(10 * time.Second)
 
-	// launch channel CCTV4 on Damai
-	if device.ChannelCCTV4() != nil {
-		t.Error(err)
-	}
-	time.Sleep(10 * time.Second)
-
 	// go Home
 	if device.KeypressHome() != nil {
 		t.Error(err)
