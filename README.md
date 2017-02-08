@@ -14,37 +14,34 @@ Call `roku.Connect()` with the IP address of the Roku device you'd like control,
 	package main
 
 	import (
-		"github.com/mgoff/go-samsung-exlink"
+		"github.com/mgoff/go-roku-ecs"
 		"log"
 		"time"
 	)
 
 	func main() {
 
-		// open the connection to the EX-Link device
-		device, err := exlink.Open("/dev/tty.KeySerial1")
+		// open the connection to the Roku device
+		device, err := roku.Connect("192.168.1.50")
 		if err != nil { log.Fatal(err) }
 
-		// close the connection at the end
-		defer device.Close()
-
-		// turn on the EX-Link device
-		err = device.PowerOn()
+		// launch Netflix
+		err = device.LaunchNetflix()
 		if err != nil { log.Fatal(err) }
 		time.Sleep(10 * time.Second)
 
-		// switch to HDMI 1
-		err = device.SourceHDMI1()
+		// launch live TV on CNNGo
+		err = device.ChannelCNNLive()
 		if err != nil { log.Fatal(err) }
 		time.Sleep(10 * time.Second)
 
-		// switch to HDMI 2
-		err = device.SourceHDMI2()
+		// launch channel CCTV4 on Damai
+		err = device.ChannelCCTV4()
 		if err != nil { log.Fatal(err) }
 		time.Sleep(10 * time.Second)
 
-		// turn off the EX-Link device
-		err = device.PowerOff()
+		// go Home
+		err = device.KeypressHome()
 		if err != nil { log.Fatal(err) }
 	}
 ````

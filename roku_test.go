@@ -1,4 +1,4 @@
-package exlink
+package roku
 
 import (
 	"testing"
