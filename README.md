@@ -1,9 +1,10 @@
 # go-roku-ecs
-Go library for the Roku External Control Service
+A Go library for controlling Roku streaming players and TVs through the Roku External Control Service API.
 
-External Control Service API
-============================
-Roku has an amazingly simple and open API for controlling Roku devices over the local network. This library implments a subset of the features decsribed in Roku's [External Control Guide](https://sdkdocs.roku.com/display/sdkdoc/External+Control+Guide).
+Roku External Control Service API
+=================================
+
+Roku has an amazingly simple and open API for controlling Roku devices over the local network. This library implments a subset of the features decsribed in Roku's [External Control Guide](https://sdkdocs.roku.com/display/sdkdoc/External+Control+Guide) and has been tested with the [Roku Streaming Stick](http://amzn.to/2lmSsGF).
 
 Usage
 =====
