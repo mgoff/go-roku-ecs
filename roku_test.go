@@ -17,37 +17,28 @@ func TestRokuEcp(t *testing.T) {
 	device, err := Connect(address)
 	if err != nil {
 		t.Error(err)
-		return
 	}
 
 	// launch Netflix
-	err = device.LaunchNetflix()
-	if err != nil {
+	if device.LaunchNetflix() != nil {
 		t.Error(err)
-		return
 	}
 	time.Sleep(10 * time.Second)
 
 	// launch live TV on CNNGo
-	err = device.ChannelCNNLive()
-	if err != nil {
+	if device.ChannelCNNLive() != nil {
 		t.Error(err)
-		return
 	}
 	time.Sleep(10 * time.Second)
 
 	// launch channel CCTV4 on Damai
-	err = device.ChannelCCTV4()
-	if err != nil {
+	if device.ChannelCCTV4() != nil {
 		t.Error(err)
-		return
 	}
 	time.Sleep(10 * time.Second)
 
 	// go Home
-	err = device.KeypressHome()
-	if err != nil {
+	if device.KeypressHome() != nil {
 		t.Error(err)
-		return
 	}
 }

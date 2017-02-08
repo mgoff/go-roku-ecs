@@ -23,25 +23,28 @@ Call `roku.Connect()` with the IP address of the Roku device you'd like control,
 
 		// open the connection to the Roku device
 		device, err := roku.Connect("192.168.1.50")
-		if err != nil { log.Fatal(err) }
+		if err != nil {
+			log.Fatal(err)
+		}
 
 		// launch Netflix
 		err = device.LaunchNetflix()
-		if err != nil { log.Fatal(err) }
+		if err != nil {
+			log.Fatal(err)
+		}
 		time.Sleep(10 * time.Second)
 
 		// launch live TV on CNNGo
 		err = device.ChannelCNNLive()
-		if err != nil { log.Fatal(err) }
+		if err != nil {
+			log.Fatal(err)
+		}
 		time.Sleep(10 * time.Second)
 
-		// launch channel CCTV4 on Damai
-		err = device.ChannelCCTV4()
-		if err != nil { log.Fatal(err) }
-		time.Sleep(10 * time.Second)
-
-		// go Home
+		// go back to the Home screen
 		err = device.KeypressHome()
-		if err != nil { log.Fatal(err) }
+		if err != nil {
+			log.Fatal(err)
+		}
 	}
 ````

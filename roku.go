@@ -8,26 +8,28 @@ import (
 
 // common Roku app IDs
 const (
-	CNNGo	= 65978
-	Damai	= 113040
-	Netflix	= 12
+	CNNGo   = 65978
+	Damai   = 113040
+	Netflix = 12
 )
 
 // struct used to hold our Roku connection
 type Roku struct {
 	address string
-	client *http.Client
+	client  *http.Client
 }
 
 // open a connection to the Roku device
 func Connect(address string) (Roku, error) {
-	return Roku{address:address, client:&http.Client{}}, nil
+	return Roku{address: address, client: &http.Client{}}, nil
 }
 
 // common http post method
 func (r Roku) Post(path string) error {
-    req, err := http.NewRequest("POST", "http://" + r.address + ":8060" + path, nil)
-    if err != nil { return err }
+	req, err := http.NewRequest("POST", "http://"+r.address+":8060"+path, nil)
+	if err != nil {
+		return err
+	}
 	_, err = r.client.Do(req)
 	return err
 }
