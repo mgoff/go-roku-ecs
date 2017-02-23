@@ -10,6 +10,7 @@ import (
 const (
 	CNNGo   = 65978
 	Damai   = 113040
+	Hulu    = 2285
 	Netflix = 12
 )
 
@@ -52,6 +53,11 @@ func (r Roku) KeypressDown() error {
 // select button
 func (r Roku) KeypressSelect() error {
 	return r.Post("/keypress/select")
+}
+
+// launch Hulu
+func (r Roku) LaunchHulu() error {
+	return r.Post("/launch/" + strconv.Itoa(Hulu))
 }
 
 // launch Netflix
